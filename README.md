@@ -1,4 +1,4 @@
-![moonfly](https://raw.githubusercontent.com/bluz71/misc-binaries/master/headings/moonfly.png)
+
 ==========
 
 _moonfly_ is a dark charcoal theme for modern Neovim and classic Vim.
