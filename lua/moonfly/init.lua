@@ -4,7 +4,7 @@ local highlight = vim.api.nvim_set_hl
 local none = "NONE"
 -- Background and foreground
 local black = "#080808"
-local white = "#c6c6c6"
+local white = "#ffffff"
 local bg = black
 if g.moonflyTransparent then
   bg = none
@@ -27,7 +27,7 @@ local grey234 = "#1c1c1c"
 local grey233 = "#121212"
 -- Core theme colors
 local khaki = "#c2c292"
-local yellow = "#00d700"
+local yellow = "#e3c78a"
 local orange = "#ff8700"
 local coral = "#f09479"
 local orchid = "#e196a2"
@@ -44,6 +44,7 @@ local crimson = "#ff5189"
 local red = "#ff5454"
 -- Extra colors
 local spring = "#00875f"
+local stringgreen = "#00d700"
 
 local M = {}
 
@@ -83,6 +84,7 @@ M.palette = {
   crimson = crimson,
   red = red,
   spring = spring,
+  stringgreen = stringgreen,
 }
 
 M.style = function()
@@ -103,6 +105,7 @@ M.style = function()
   highlight(0, "MoonflyGrey236", { fg = grey236 })
   highlight(0, "MoonflyGrey235", { fg = grey235 })
   highlight(0, "MoonflyKhaki", { fg = khaki })
+  highlight(0, "MoonflyStringGreen", { fg = stringgreen, italic = true })
   highlight(0, "MoonflyYellow", { fg = yellow })
   highlight(0, "MoonflyOrange", { fg = orange })
   highlight(0, "MoonflyCoral", { fg = coral })
@@ -160,6 +163,8 @@ M.style = function()
   -------------------------------------------------------------------------
   -- Standard styling
   -------------------------------------------------------------------------
+  highlight(0, "Header", { fg="#000000",bg="#ffaf00",bold=true })
+  highlight(0, "Commented", { fg="#6c6c6c",bg="#000000",italic=false })
 
   -- Specify the colors used by the inbuilt terminal
   if g.moonflyTerminalColors then
@@ -189,16 +194,16 @@ M.style = function()
 
   -- Comments
   if g.moonflyItalics then
-    highlight(0, "Comment", { fg = grey246, italic = true })
+    highlight(0, "Comment", { fg = grey247, italic = true })
   else
     highlight(0, "Comment", { link = "MoonflyGrey246" })
   end
 
   -- Functions
-  highlight(0, "Function", { link = "MoonflySky" })
+  highlight(0, "Function", { fg = "#d7ff00" })
 
   -- Strings
-  highlight(0, "String", { link = "MoonflyKhaki" })
+  highlight(0, "String", { link = "MoonflyStringGreen" })
 
   -- Booleans
   highlight(0, "Boolean", { link = "MoonflyCranberry" })
@@ -234,10 +239,10 @@ M.style = function()
   highlight(0, "NonText", { fg = grey241 })
 
   -- sizeof
-  highlight(0, "Operator", { link = "MoonflyCranberry" })
+  highlight(0, "Operator", { fg = purple, bold = true })
 
   -- for, while
-  highlight(0, "Repeat", { link = "MoonflyViolet" })
+  highlight(0, "Repeat", { fg = "#66aaff" })
 
   -- Search
   highlight(0, "Search", { bg = grey1, fg = grey254 })
@@ -248,10 +253,10 @@ M.style = function()
   highlight(0, "Special", { link = "MoonflyCranberry" })
 
   -- if, else
-  highlight(0, "Statement", { fg = violet })
+  highlight(0, "Statement", { fg = "#87dfff" })
 
   -- struct, union, enum, typedef
-  highlight(0, "Structure", { link = "MoonflyBlue" })
+  highlight(0, "Structure", { fg = "#ccee55" })
 
   -- Status, split and tab lines
   highlight(0, "StatusLine", { bg = grey236, fg = white })
@@ -316,17 +321,17 @@ M.style = function()
   highlight(0, "Folded", { bg = grey234, fg = lime })
   highlight(0, "FoldColumn", { bg = grey236, fg = lime })
   highlight(0, "SignColumn", { bg = bg, fg = lime })
-  highlight(0, "Todo", { bg = grey235, fg = yellow })
+  highlight(0, "Todo", { bg = "#005f5f", fg = "#87ffaf" })
   highlight(0, "SpecialKey", { bg = bg, fg = sky })
   if g.moonflyUnderlineMatchParen then
     highlight(0, "MatchParen", { bg = bg, underline = true })
   else
-    highlight(0, "MatchParen", { link = "MoonflyVisual" })
+    highlight(0, "MatchParen", { reverse=true })
   end
   highlight(0, "Ignore", { link = "MoonflySky" })
   highlight(0, "Underlined", { fg = emerald })
   highlight(0, "QuickFixLine", { bg = grey237 })
-  highlight(0, "Delimiter", { link = "MoonflyWhite" })
+  highlight(0, "Delimiter", {  fg = "#44ddee" })
   highlight(0, "qfFileName", { link = "MoonflyEmerald" })
 
   -- Color column (after line 80)
