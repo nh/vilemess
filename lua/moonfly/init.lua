@@ -92,7 +92,7 @@ M.style = function()
   -- Custom styling groups
   -------------------------------------------------------------------------
 
-  highlight(0, "MoonflyVisual", { bg = grey0 })
+  highlight(0, "MoonflyVisual", { fg="#87ffff", bg = "#005f87" })
   highlight(0, "MoonflyWhite", { fg = white })
   highlight(0, "MoonflyGrey0", { fg = grey0 })
   highlight(0, "MoonflyGrey254", { fg = grey254 })
@@ -165,7 +165,20 @@ M.style = function()
   -------------------------------------------------------------------------
   highlight(0, "Header", { fg="#000000",bg="#ffaf00",bold=true })
   highlight(0, "Commented", { fg="#6c6c6c",bg="#000000",italic=false })
-
+  highlight(0, "Indented", { fg="#6c6c6c",bg="#000000",italic=false })
+  highlight(0, "True", { fg="#66ff33", bg="#003311",italic=false,bold=true })
+  highlight(0, "False", { fg="#cc0011", bg="#330011",italic=false,bold=true })
+  highlight(0, "TelescopePromptBorder", {  fg="#cc6666",bold=true })
+  highlight(0, "TelescopeResultsBorder", { fg="#cc7766",bold=true })
+  highlight(0, "TelescopePreviewBorder", { fg="#ffaf66",bold=true })
+  highlight(0, "IndentBlanklineContextChar", { fg="#444444"})
+  highlight(0, "RainbowDelimiterRed",   {fg="#00ccdd", bold=true})
+  highlight(0, "RainbowDelimiterYellow",{fg="#007788", bold=true})
+  highlight(0, "RainbowDelimiterBlue",  {fg="#ddcc55", bold=true})
+  highlight(0, "RainbowDelimiterOrange",{fg="#998800", bold=true})
+  highlight(0, "RainbowDelimiterGreen", {fg="#ff6655", bold=true})
+  highlight(0, "RainbowDelimiterViolet",{fg="#aa3300", bold=true})
+  highlight(0, "RainbowDelimiterCyan",  {fg="#662222", bold=true})
   -- Specify the colors used by the inbuilt terminal
   if g.moonflyTerminalColors then
     g.terminal_color_0 = grey0
@@ -216,6 +229,7 @@ M.style = function()
 
   -- const, static
   highlight(0, "StorageClass", { link = "MoonflyCoral" })
+  
 
   -- void, intptr_t
   highlight(0, "Type", { fg = emerald })
@@ -247,7 +261,8 @@ M.style = function()
   -- Search
   highlight(0, "Search", { bg = grey1, fg = grey254 })
   highlight(0, "CurSearch", { bg = coral, fg = black })
-  highlight(0, "IncSearch", { bg = yellow, fg = black })
+  -- highlight(0, "IncSearch", { bg = yellow, fg = black })
+  highlight(0, "IncSearch", { bg = "#87ffff", fg = "#005f87" })
 
   -- '\n' sequences
   highlight(0, "Special", { link = "MoonflyCranberry" })
@@ -262,7 +277,7 @@ M.style = function()
   highlight(0, "StatusLine", { bg = grey236, fg = white })
   highlight(0, "StatusLineNC", { bg = grey236, fg = grey247 })
   highlight(0, "Tabline", { bg = grey236, fg = grey247 })
-  highlight(0, "TablineSel", { bg = grey234, fg = blue })
+  highlight(0, "TabLineSel", { bg = grey234, fg = blue })
   highlight(0, "TablineSelSymbol", { bg = grey234, fg = emerald })
   highlight(0, "TablineFill", { bg = grey236, fg = grey236 })
   highlight(0, "StatusLineTerm", { bg = grey236, fg = white })
@@ -270,7 +285,7 @@ M.style = function()
   if g.moonflyWinSeparator == 0 then
     highlight(0, "VertSplit", { bg = black, fg = black })
   elseif g.moonflyWinSeparator == 1 then
-    highlight(0, "VertSplit", { bg = grey236, fg = grey236 })
+    highlight(0, "VertSplit", { bg = none, fg = "#444444",bold=true })
   else
     highlight(0, "VertSplit", { bg = none, fg = grey236 })
   end
@@ -282,6 +297,7 @@ M.style = function()
 
   -- Errors, warnings and whitespace-eol
   highlight(0, "Error", { bg = bg, fg = red })
+  highlight(0, "CloseMe", { bg = yellow, fg = red })
   highlight(0, "ErrorMsg", { bg = bg, fg = red })
   highlight(0, "WarningMsg", { bg = bg, fg = orange })
 
@@ -308,18 +324,18 @@ M.style = function()
   -- Misc
   highlight(0, "Question", { fg = lime })
   highlight(0, "MoreMsg", { fg = red })
-  highlight(0, "LineNr", { bg = bg, fg = grey241 })
+  highlight(0, "LineNr", { bg = bg, fg = "#333333" })
   if g.moonflyCursorColor then
     highlight(0, "Cursor", { fg = bg, bg = blue })
   else
     highlight(0, "Cursor", { fg = bg, bg = grey247 })
   end
   highlight(0, "lCursor", { fg = bg, bg = grey247 })
-  highlight(0, "CursorLineNr", { bg = grey234, fg = blue })
+  highlight(0, "CursorLineNr", { fg="#000000",bg="#ffdd22",bold=true })
   highlight(0, "CursorColumn", { bg = grey234 })
   highlight(0, "CursorLine", { bg = grey234 })
-  highlight(0, "Folded", { bg = grey234, fg = lime })
-  highlight(0, "FoldColumn", { bg = grey236, fg = lime })
+  highlight(0, "Folded", { bg ="#222222", fg = "#000000",underline=true })
+  highlight(0, "FoldColumn", {  fg = "#666666" })
   highlight(0, "SignColumn", { bg = bg, fg = lime })
   highlight(0, "Todo", { bg = "#005f5f", fg = "#87ffaf" })
   highlight(0, "SpecialKey", { bg = bg, fg = sky })
@@ -358,8 +374,8 @@ M.style = function()
     highlight(0, "NormalFloat", { bg = grey234, fg = white })
   end
   highlight(0, "FloatBorder", { bg = bg, fg = grey236 })
-  highlight(0, "WinBar", { bg = grey235, fg = white })
-  highlight(0, "WinBarNC", { bg = grey235, fg = grey247 })
+  highlight(0, "WinBar", { bg = "#000000", fg = "#ffffff" })
+  highlight(0, "WinBarNC", { bg = "#333333", fg = "#ffffff" })
   highlight(0, "WinSeparator", { link = "VertSplit" })
 
   -- Neovim check-health
@@ -385,13 +401,13 @@ M.style = function()
   highlight(0, "@namespace", { link = "MoonflyTurquoise" })
   highlight(0, "@none", {})
   highlight(0, "@parameter", { link = "MoonflyOrchid" })
-  highlight(0, "@property", { link = "MoonflyTurquoise" })
+  highlight(0, "@property", { fg = "#66ccff" })
   highlight(0, "@punctuation.special", { link = "MoonflyCranberry" })
   highlight(0, "@string.regex", { link = "MoonflyTurquoise" })
   highlight(0, "@symbol", { link = "MoonflyPurple" })
   highlight(0, "@tag", { link = "MoonflyBlue" })
   highlight(0, "@tag.attribute", { link = "MoonflyTurquoise" })
-  highlight(0, "@tag.delimiter", { link = "MoonflyLime" })
+  highlight(0, "@tag.delimiter", { fg = "#ffdddd" })
   highlight(0, "@text.danger", { link = "MoonflyRedAlert" })
   highlight(0, "@text.diff.add", { link = "DiffAdd" })
   highlight(0, "@text.diff.delete", { link = "DiffDelete" })
@@ -416,7 +432,10 @@ M.style = function()
   highlight(0, "@punctuation.delimiter.astro", { link = "MoonflyCranberry" })
   highlight(0, "@text.title.astro", { link = "MoonflyViolet" })
   highlight(0, "@parameter.bash", { link = "MoonflyTurquoise" })
-  highlight(0, "@punctuation.delimiter.css", { link = "MoonflyCranberry" })
+  highlight(0, "@punctuation.delimiter.css", { fg="#1177aa",bold=true })
+  highlight(0, "@number.css", { fg="#ff9900",bold=true,italic=false })
+  highlight(0, "@string.css", { fg="#cc6600",bold=false,italic=false })
+  highlight(0, "@tag.delimiter.css", { fg = "#ffee66" })
   highlight(0, "@keyword.gitcommit", { link = "MoonflySky" })
   highlight(0, "@text.reference.gitcommit", { link = "MoonflyBlue" })
   highlight(0, "@text.title.gitcommit", { link = "MoonflyViolet" })
